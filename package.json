@@ -4,7 +4,7 @@
 	"version": "0.0.1",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "vite dev --host 0.0.0.0",
 		"build": "vite build",
 		"preview": "npm run build && wrangler dev",
 		"prepare": "svelte-kit sync || echo ''",
@@ -34,5 +34,10 @@
 		"typescript-eslint": "^8.20.0",
 		"vite": "^7.0.4",
 		"wrangler": "^4.30.0"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.12",
+		"daisyui": "^5.0.50",
+		"tailwindcss": "^4.1.12"
 	}
 }

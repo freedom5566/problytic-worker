@@ -1,20 +1,25 @@
-<script>
-	/** @type {number} */
-	// let number = $state();
+<div class="min-h-screen flex justify-center items-center gap-8 flex-col md:flex-row px-4">
+	<div class="card bg-base-100 shadow-xl p-4 overflow-x-auto w-full max-w-5xl mx-auto">
+		<div class="w-full px-4 mt-4 mb-4">
+			<input
+				type="text"
+				placeholder="查詢"
+				class="input input-bordered input-xl input-neutral w-full"
+				list="browsers"
+			/>
+			<datalist id="browsers">
+				<option value="Chrome"></option>
+				<option value="Firefox"></option>
+				<option value="Safari"></option>
+				<option value="Opera"></option>
+				<option value="Edge"></option>
+			</datalist>
+		</div>
 
-	// async function roll() {
-	// 	const response = await fetch('/api/test');
-	// 	number = await response.json();
-	// }
-</script>
-
-<!-- 外層容器 -->
-<div class="min-h-screen flex justify-center items-center gap-8 flex-col md:flex-row">
-	<!-- 左側 Top 10 玩家 -->
-	<div class="card bg-base-100 shadow-xl p-4 overflow-x-auto">
 		<h2 class="text-xl font-bold mb-4 text-center text-blue-700 bg-blue-50 rounded-lg py-2">
 			🔥 Top 10 玩家
 		</h2>
+
 		<table class="table">
 			<thead>
 				<tr>
@@ -76,42 +81,14 @@
 				</tr>
 			</tbody>
 		</table>
-	</div>
 
-	<!-- 右側 Top 10 公會 -->
-	<div class="card bg-base-100 shadow-xl p-4 overflow-x-auto">
-		<h2 class="text-xl font-bold mb-4 text-center text-green-700 bg-green-50 rounded-lg py-2">
-			⚡ Top 10 公會
-		</h2>
-		<table class="table">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>名稱</th>
-					<th>成員數</th>
-					<th>徽章顏色</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class="bg-base-200">
-					<th>1</th>
-					<td>Alpha Guild</td>
-					<td>50</td>
-					<td>Green</td>
-				</tr>
-				<tr>
-					<th>2</th>
-					<td>Beta Squad</td>
-					<td>45</td>
-					<td>Yellow</td>
-				</tr>
-				<tr>
-					<th>3</th>
-					<td>Gamma Team</td>
-					<td>42</td>
-					<td>Orange</td>
-				</tr>
-			</tbody>
-		</table>
+		<div class="join mt-4 flex justify-center">
+			<button class="join-item btn">＜</button>
+			<input class="join-item btn btn-square" type="radio" name="options" aria-label="1" checked />
+			<input class="join-item btn btn-square" type="radio" name="options" aria-label="2" />
+			<input class="join-item btn btn-square" type="radio" name="options" aria-label="3" />
+			<input class="join-item btn btn-square" type="radio" name="options" aria-label="4" />
+			<button class="join-item btn">＞</button>
+		</div>
 	</div>
 </div>

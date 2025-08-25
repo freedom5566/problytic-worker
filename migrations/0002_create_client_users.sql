@@ -1,5 +1,5 @@
--- Migration number: 0001 	 2025-08-19T13:46:46.545Z
-CREATE TABLE admin_users (
+-- Migration number: 0002 	 2025-08-23T09:04:47.695Z
+CREATE TABLE client_users(
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     first_name VARCHAR(128) NOT NULL DEFAULT '',
     last_name VARCHAR(128) NOT NULL DEFAULT '',

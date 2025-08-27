@@ -1,0 +1,102 @@
+<script>
+	const userPattern = '[A-Za-z][A-Za-z0-9\\-]*';
+	const passwordPattern = '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}';
+	// let username = '';
+	// let password = '';
+
+	// async function register() {
+	// 	const res = await fetch('/api/register', {
+	// 		method: 'POST',
+	// 		headers: { 'Content-Type': 'application/json' },
+	// 		body: JSON.stringify({ username, password })
+	// 	});
+	// 	console.log(await res.json());
+	// }
+
+	// async function login() {
+	// 	const res = await fetch('/api/login', {
+	// 		method: 'POST',
+	// 		headers: { 'Content-Type': 'application/json' },
+	// 		body: JSON.stringify({ username, password })
+	// 	});
+	// 	console.log(await res.json());
+	// }
+</script>
+
+<!-- <input bind:value={username} placeholder="username"/>
+<input bind:value={password} placeholder="password" type="password"/>
+<button on:click={register}>Register</button>
+<button on:click={login}>Login</button>
+<h1>Welcome to SvelteKit</h1> -->
+<div class="min-h-screen flex justify-center items-center bg-base-200 px-4">
+	<div class="card bg-base-100 shadow-xl p-8 w-full max-w-md">
+		<h2 class="text-2xl font-bold text-center mb-6">Login</h2>
+
+		<!-- Username -->
+		<label class="input input-bordered flex items-center gap-2 mb-4 w-full">
+			<svg
+				class="h-5 w-5 opacity-50"
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				viewBox="0 0 24 24"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
+				/>
+				<circle cx="12" cy="7" r="4"></circle>
+			</svg>
+			<input
+				type="text"
+				required
+				placeholder="Username"
+				pattern={userPattern}
+				minlength="3"
+				maxlength="30"
+				title="Only letters, numbers or dash"
+				class="grow"
+			/>
+		</label>
+		<p class="text-sm text-gray-500 mb-4">
+			Must be 3 to 30 characters, only letters, numbers or dash
+		</p>
+
+		<!-- Password -->
+		<label class="input input-bordered flex items-center gap-2 mb-4 w-full">
+			<svg
+				class="h-5 w-5 opacity-50"
+				xmlns="http://www.w3.org/2000/svg"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				viewBox="0 0 24 24"
+			>
+				<path
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"
+				/>
+				<circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle>
+			</svg>
+			<input
+				type="password"
+				required
+				placeholder="Password"
+				minlength="8"
+				pattern={passwordPattern}
+				title="Must be more than 8 characters, including number, lowercase letter, uppercase letter"
+				class="grow"
+			/>
+		</label>
+		<p class="text-sm text-gray-500 mb-6">
+			Must be at least 8 characters, include number, lowercase and uppercase
+		</p>
+
+		<!-- Submit Button -->
+		<button class="btn btn-primary w-full">Login</button>
+		<button class="btn btn-primary w-full">Register</button>
+	</div>
+</div>

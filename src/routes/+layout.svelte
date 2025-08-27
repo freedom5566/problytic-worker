@@ -51,7 +51,7 @@
 		</ul>
 	</div>
 	<div class="navbar-end">
-		<a class="btn btn-primary" href={baseUrl}>登入</a>
+		<a class="btn btn-primary" href="{baseUrl}/login">登入</a>
 	</div>
 </div>
 

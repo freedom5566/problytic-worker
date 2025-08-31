@@ -1,33 +1,28 @@
 <script>
 	const userPattern = '[A-Za-z][A-Za-z0-9\\-]*';
 	const passwordPattern = '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}';
-	// let username = '';
-	// let password = '';
+	let username = '';
+	let password = '';
 
-	// async function register() {
-	// 	const res = await fetch('/api/register', {
-	// 		method: 'POST',
-	// 		headers: { 'Content-Type': 'application/json' },
-	// 		body: JSON.stringify({ username, password })
-	// 	});
-	// 	console.log(await res.json());
-	// }
+	async function register() {
+		const res = await fetch('/api/register', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ username, password })
+		});
+		console.log(await res.json());
+	}
 
-	// async function login() {
-	// 	const res = await fetch('/api/login', {
-	// 		method: 'POST',
-	// 		headers: { 'Content-Type': 'application/json' },
-	// 		body: JSON.stringify({ username, password })
-	// 	});
-	// 	console.log(await res.json());
-	// }
+	async function login() {
+		const res = await fetch('/api/login', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ username, password })
+		});
+		console.log(await res.json());
+	}
 </script>
 
-<!-- <input bind:value={username} placeholder="username"/>
-<input bind:value={password} placeholder="password" type="password"/>
-<button on:click={register}>Register</button>
-<button on:click={login}>Login</button>
-<h1>Welcome to SvelteKit</h1> -->
 <div class="min-h-screen flex justify-center items-center bg-base-200 px-4">
 	<div class="card bg-base-100 shadow-xl p-8 w-full max-w-md">
 		<h2 class="text-2xl font-bold text-center mb-6">Login</h2>
@@ -52,6 +47,7 @@
 			<input
 				type="text"
 				required
+				bind:value={username}
 				placeholder="Username"
 				pattern={userPattern}
 				minlength="3"
@@ -84,6 +80,7 @@
 			<input
 				type="password"
 				required
+				bind:value={password}
 				placeholder="Password"
 				minlength="8"
 				pattern={passwordPattern}
@@ -96,7 +93,7 @@
 		</p>
 
 		<!-- Submit Button -->
-		<button class="btn btn-primary w-full">Login</button>
-		<button class="btn btn-primary w-full">Register</button>
+		<button class="btn btn-primary w-full" on:click={login}>Login</button>
+		<button class="btn btn-accent w-full" on:click={register}>Register</button>
 	</div>
 </div>

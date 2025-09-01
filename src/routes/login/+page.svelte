@@ -3,14 +3,27 @@
 	const passwordPattern = '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}';
 	let username = '';
 	let password = '';
+	let showModal = false;
+	let registerTitle = '';
 
+	let registerMsg = '';
 	async function register() {
 		const res = await fetch('/api/register', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ username, password })
 		});
-		console.log(await res.json());
+
+		const data = await res.json();
+		console.log(data);
+		if (res.ok) {
+			registerTitle = '🎉 恭喜！';
+			registerMsg = '註冊成功！';
+		} else {
+			registerTitle = '';
+			registerMsg = '註冊失敗！';
+		}
+		showModal = true;
 	}
 
 	async function login() {
@@ -21,9 +34,26 @@
 		});
 		console.log(await res.json());
 	}
+	function confirmSuccess() {
+		showModal = false;
+		registerTitle = '';
+		registerMsg = '';
+		location.reload(); // 模擬 F5
+	}
 </script>
 
 <div class="min-h-screen flex justify-center items-center bg-base-200 px-4">
+	{#if showModal}
+		<dialog class="modal modal-open">
+			<div class="modal-box">
+				<h3 class="font-bold text-lg">{registerTitle}</h3>
+				<p class="py-4">{registerMsg}</p>
+				<div class="modal-action">
+					<button class="btn btn-primary" on:click={confirmSuccess}>OK</button>
+				</div>
+			</div>
+		</dialog>
+	{/if}
 	<div class="card bg-base-100 shadow-xl p-8 w-full max-w-md">
 		<h2 class="text-2xl font-bold text-center mb-6">Login</h2>
 

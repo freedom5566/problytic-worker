@@ -50,7 +50,8 @@
 			<li><a class="btn btn-ghost text-xl" href="{baseUrl}/about">關於我們</a></li>
 		</ul>
 	</div>
-	<div class="navbar-end">
+	<div class="navbar-end gap-x-2">
+		<a class="btn btn-warning" href="{baseUrl}/share-datas">分享資料</a>
 		<a class="btn btn-primary" href="{baseUrl}/login">登入</a>
 	</div>
 </div>

@@ -4,10 +4,10 @@
 		<form class="space-y-4">
 			<!-- 下拉選單 -->
 			<div class="form-control">
-				<label class="label">
-					<span class="label-text">選擇項目</span>
+				<label for="monster-selector">
+					<span class="label-text">怪物種類</span>
 				</label>
-				<select class="select select-bordered w-full">
+				<select class="select select-bordered w-full" id="monster-selector" required>
 					<option disabled selected>請選擇</option>
 					<option value="1">項目 1</option>
 					<option value="2">項目 2</option>
@@ -17,18 +17,15 @@
 
 			<!-- 輸入框 1 -->
 			<div class="form-control">
-				<label class="label">
+				<label for="monster-share-datas">
 					<span class="label-text">輸入內容一</span>
 				</label>
-				<input type="text" placeholder="請輸入內容一" class="input input-bordered w-full" />
-			</div>
-
-			<!-- 輸入框 2 -->
-			<div class="form-control">
-				<label class="label">
-					<span class="label-text">輸入內容二</span>
-				</label>
-				<input type="text" placeholder="請輸入內容二" class="input input-bordered w-full" />
+				<input
+					type="text"
+					placeholder="請輸入內容一"
+					class="input input-bordered w-full"
+					id="monster-share-datas"
+				/>
 			</div>
 
 			<!-- 送出按鈕 -->

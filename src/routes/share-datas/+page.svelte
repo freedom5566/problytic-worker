@@ -1,3 +1,11 @@
+<script lang="ts">
+	import { getDatas } from '$lib/front/monster';
+
+	let monsters = getDatas();
+
+	console.log(monsters);
+</script>
+
 <div class="min-h-screen flex justify-center items-center gap-8 flex-col md:flex-row px-4">
 	<div class="card bg-base-100 shadow-xl p-4 overflow-x-auto w-full max-w-5xl mx-auto">
 		<h2 class="text-2xl font-bold mb-4">資料輸入</h2>

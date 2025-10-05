@@ -42,6 +42,9 @@
 	}
 </script>
 
+<svelte:head>
+	<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</svelte:head>
 <div class="min-h-screen flex justify-center items-center bg-base-200 px-4">
 	{#if showModal}
 		<dialog class="modal modal-open">
@@ -121,7 +124,7 @@
 		<p class="text-sm text-gray-500 mb-6">
 			Must be at least 8 characters, include number, lowercase and uppercase
 		</p>
-
+		<div class="cf-turnstile w-full" data-sitekey="0x4AAAAAAB4_zQGEEut2yvVg"></div>
 		<!-- Submit Button -->
 		<button class="btn btn-primary w-full" on:click={login}>Login</button>
 		<button class="btn btn-accent w-full" on:click={register}>Register</button>

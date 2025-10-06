@@ -124,7 +124,10 @@
 		<p class="text-sm text-gray-500 mb-6">
 			Must be at least 8 characters, include number, lowercase and uppercase
 		</p>
-		<div class="cf-turnstile w-full" data-sitekey="0x4AAAAAAB4_zQGEEut2yvVg"></div>
+	
+			<div class="cf-turnstile mx-auto" data-sitekey="0x4AAAAAAB4_zQGEEut2yvVg" data-theme="light" data-size="normal"></div>
+		
+
 		<!-- Submit Button -->
 		<button class="btn btn-primary w-full" on:click={login}>Login</button>
 		<button class="btn btn-accent w-full" on:click={register}>Register</button>

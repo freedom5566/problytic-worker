@@ -1,11 +1,14 @@
 <script>
+	import { onMount } from 'svelte';
+
 	const userPattern = '[A-Za-z][A-Za-z0-9\\-]*';
 	const passwordPattern = '(?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{8,}';
 	let username = '';
 	let password = '';
 	let showModal = false;
 	let registerTitle = '';
-
+	let container;
+	let token = '';
 	let registerMsg = '';
 	async function register() {
 		const res = await fetch('/api/register', {
@@ -30,7 +33,7 @@
 		const res = await fetch('/api/login', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({ username, password })
+			body: JSON.stringify({ username, password, token })
 		});
 		console.log(await res.json());
 	}
@@ -40,6 +43,15 @@
 		registerMsg = '';
 		location.reload(); // 模擬 F5
 	}
+	onMount(() => {
+		turnstile.render(container, {
+			sitekey: '0x4AAAAAAB4_zQGEEut2yvVg',
+			callback: (t) => {
+				console.log('驗證成功', t);
+				token = t;
+			}
+		});
+	});
 </script>
 
 <svelte:head>
@@ -124,9 +136,13 @@
 		<p class="text-sm text-gray-500 mb-6">
 			Must be at least 8 characters, include number, lowercase and uppercase
 		</p>
-	
-			<div class="cf-turnstile mx-auto" data-sitekey="0x4AAAAAAB4_zQGEEut2yvVg" data-theme="light" data-size="normal"></div>
-		
+
+		<div
+			bind:this={container}
+			class="cf-turnstile mx-auto"
+			data-theme="light"
+			data-size="normal"
+		></div>
 
 		<!-- Submit Button -->
 		<button class="btn btn-primary w-full" on:click={login}>Login</button>

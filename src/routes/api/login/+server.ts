@@ -2,10 +2,11 @@ import type { RequestHandler } from './$types';
 import { hashPassword } from '$lib/server/auth';
 import type { ClientUsers } from '$lib/server/schema/ClientUsers';
 export const POST: RequestHandler = async ({ request, cookies, platform }) => {
-	const { username, password } = await request.json();
+	const { username, password, token } = await request.json();
 
 	const stmt = await platform.env.DB.prepare('SELECT * FROM client_users WHERE username = ?');
 	const { results } = await stmt.bind(username).run();
+	console.log(token);
 	console.log(results);
 
 	if (!Array.isArray(results) || results.length === 0) {

@@ -12,6 +12,18 @@ export const POST: RequestHandler = async ({ request, cookies, platform }) => {
 	if (!Array.isArray(results) || results.length === 0) {
 		return new Response(JSON.stringify({ message: 'User not found' }), { status: 401 });
 	}
+	try {
+		const APIkey = await platform.env.turnstile_key.get();
+		const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ secret: APIkey, response: token })
+		});
+		console.log(await res.json());
+	} catch (error) {
+		console.error('Turnstile validation error:', error);
+		return { success: false, 'error-codes': ['internal-error'] };
+	}
 
 	const user = results[0] as ClientUsers;
 

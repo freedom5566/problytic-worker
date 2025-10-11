@@ -45,7 +45,9 @@
 	}
 	onMount(() => {
 		turnstile.render(container, {
+			// sitekey: '3x00000000000000000000FF',
 			sitekey: '0x4AAAAAAB4_zQGEEut2yvVg',
+
 			callback: (t) => {
 				console.log('驗證成功', t);
 				token = t;

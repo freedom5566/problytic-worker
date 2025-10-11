@@ -21,6 +21,13 @@
 			"database_name": "problytic-common",
 			"database_id": "88444e8c-beee-4c7f-9ada-fa52fc5e6fa9"
 		}
+	],
+	"secrets_store_secrets": [
+		{
+			"binding": "turnstile_key",
+			"store_id": "f9a2d4739e3f4c4a8df3310ce83bf8aa",
+			"secret_name": "turnstile_key"
+		}
 	]
 
 	/**
